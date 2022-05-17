@@ -47,6 +47,7 @@ public Robot(boolean o,int id,int x,int y,int val,int max) {
 }
 
 
+
 public int getStockActuel() {
 	return stockActuel;
 }
@@ -77,22 +78,23 @@ public void destocker(Entrepot e) {
 	}
 }
 
-public void deplacer(String A) {
+public void deplacer(String A,Monde m) {
 	Comparator comparator = String.CASE_INSENSITIVE_ORDER;
 	int z = comparator.compare(A, "H");
 	int y = comparator.compare(A, "B");
 	int x = comparator.compare(A, "G");
 	int w = comparator.compare(A, "D");
-	if(z==0 && this.x>0) {
+	
+	if(z==0 && this.x>0&&m.verif(this, A)==false) {
 		this.x=this.x-1;
 	}
-	else if(y==0 && this.x<9) {
+	else if(y==0 && this.x<9&&m.verif(this, A)==false) {
 		this.x=this.x+1;
 	}
-	else if(w==0 && this.y<9) {
+	else if(w==0 && this.y<9&&m.verif(this, A)==false) {
 		this.y=this.y+1;
 	}
-	else if(x==0 && this.y>0) {
+	else if(x==0 && this.y>0&&m.verif(this, A)==false) {
 		this.y=this.y-1;
 	}
 	else {
