@@ -10,9 +10,6 @@ class RobotTest {
 		protected Robot hp3;
 		protected Robot hp4;
 		protected Robot hp5;
-		protected PointEau e3;
-		protected PointEau e2;
-		protected PointEau e1;
 		protected PointEau e4;
 		protected PointEau e5;
 		protected PointEau e10;
@@ -31,7 +28,6 @@ class RobotTest {
 		protected Monde m3;
 		protected Monde m4;
 		protected Monde m5;
-
 		    @BeforeEach
 		    void setUp() throws Exception {
 		        hp1=new Robot(true,1,0,5);
@@ -39,15 +35,21 @@ class RobotTest {
 		        hp3=new Robot(true,1,9,5);
 		        hp4=new Robot(true,1,5,0);
 		        hp5=new Robot(true,1,5,9);
-		        e1=new PointEau(1,5);
-		        e2=new PointEau(0,6);
-		        e3=new PointEau(0,4);
-		    	PointEau[] triangle=new PointEau[] {e1,e2,e3};
+		        ////
+		        
 		        ///
 		        e4=new PointEau(4,5);
 		        e5=new PointEau(6,5);
 		        e6=new PointEau(5,4);
 		        e7=new PointEau(5,6);
+		        Robot r1,r2,r3,r4,r5,r6,r7;
+		        r4=new Robot(true,1,4,5);
+		        r5=new Robot(true,4,6,5);
+		        r6=new Robot(false,6,5,4);
+		        r7=new Robot(false,7,5,6);
+		        r1=new Robot(true,1,0,6);
+		        r2=new Robot(true,4,0,4);
+		        r3=new Robot(false,6,1,5);
 		        /////
 		        e8=new PointEau(8,5);
 		        e9=new PointEau(9,6);
@@ -65,16 +67,18 @@ class RobotTest {
 		        PointEau[] triangl3=new PointEau[] {e8,e9,e10};
 		        PointEau[] triangle4=new PointEau[] {e11,e12,e13};
 		        PointEau[] triangle5=new PointEau[] {e14,e15,e16};
-		        m1=new Monde(triangle);
-		        m2=new Monde(triangle2);
-		        m3=new Monde(triangl3);
-		        m4=new Monde(triangle4);
-		        m5=new Monde(triangle5);
+		        Robot[] triangle6=new Robot[] {r4,r5,r6,r7};
+		        Robot[] triangle7=new Robot[] {r1,r2,r3};
+		        m1=new Monde(triangle4,triangle7);
+		        m2=new Monde(triangle2,triangle6);
+		        m3=new Monde(triangl3,triangle6);
+		        m4=new Monde(triangle4,triangle6);
+		        m5=new Monde(triangle5,triangle6);
 		        }
 
 		    @Test
 		    void testdepl1() {
-		        assertThrows(Exception.class,()->{hp1.deplacer("H",m1);});
+		        assertThrows(Exception.class,()->{hp1.deplacer("H",m5);});
 		        }
 		    @Test
 		    void testdepl2() {

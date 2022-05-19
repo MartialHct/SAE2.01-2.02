@@ -14,6 +14,14 @@ public Entrepot(boolean o,int id,int x, int y) {
 	this.y=y;
 }
 
+
+
+public int getIdEntrepot() {
+	return idEntrepot;
+}
+
+
+
 public Entrepot() {
 	this.idEntrepot=1;
 	this.or=true;

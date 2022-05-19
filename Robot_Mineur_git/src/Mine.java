@@ -20,6 +20,12 @@ public Mine(boolean o,int id,int x,int y) {
 	this.y=y;
 }
 
+
+public int getIdMine() {
+	return idMine;
+}
+
+
 public boolean isOr() {
 	return or;
 }
