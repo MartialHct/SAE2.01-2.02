@@ -21,7 +21,7 @@ public Robot(boolean o,int id,int x,int y) {
 	this.x=x;
 	this.or=o;
 	this.idRobot=id;
-	this.stockActuel=5;
+	this.stockActuel=0;
 	this.capaciteExtraction=value;
 	this.stockMax=value2;
 }
@@ -47,6 +47,10 @@ public Robot(boolean o,int id,int x,int y,int val,int max) {
 }
 
 
+
+public int getStockMax() {
+	return stockMax;
+}
 
 public int getStockActuel() {
 	return stockActuel;
