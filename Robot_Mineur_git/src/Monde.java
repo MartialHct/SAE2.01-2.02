@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Random;
+import java.util.Scanner;
 
 
 
@@ -347,7 +348,31 @@ public boolean verif(Robot R,String H) {
 		this.sect = sect;
 	}
 	
+	
+	
+	public Robot[] getRob() {
+		return rob;
+	}
+
+	public Mine[] getMin() {
+		return min;
+	}
+
+	public Entrepot[] getEnt() {
+		return ent;
+	}
+
+	public int getNbTour() {
+		return nbTour;
+	}
+
+	public Secteur[][] getSect() {
+		return sect;
+	}
+
 	public void afficherEtat() {
+		System.out.println("tours:  "+this.nbTour);
+		
 		for (int i=0;i<this.ent.length;i++) {
 			if(this.ent[i].isOr()==true) {
 				System.out.println("E  "+this.ent[i].getIdEntrepot()+" X:  "+this.ent[i].getX()+" Y:  "+this.ent[i].getY()+"  OR  "+this.ent[i].getStock());
@@ -376,5 +401,84 @@ public boolean verif(Robot R,String H) {
 			System.out.println();
 		}
 	}
+	
+	public void game() {
+		boolean e=false;
+		this.afficherMonde();
+		this.afficherEtat();
+		while(e==false) {
+			for (int i=0;i<this.rob.length;i++) {
+				for(int j=0;j<this.ent.length;j++) {
+					if(this.rob[i].getX()==this.ent[j].getX()&&this.rob[i].getY()==this.ent[j].getY()) {
+						Scanner inputReader = new Scanner(System.in);
+						System.out.println("voulez vous destocker  R "+this.rob[i].getID()+"dans E "+this.ent[j].getIdEntrepot()+"si oui entrez 1");
+				        int number2 = inputReader.nextInt();
+				        if(number2==1) {
+				        	this.rob[i].destocker(this.ent[j]);
+				        	this.nbTour=this.nbTour+1;
+				        }
+					}
+				}
+				for(int j=0;j<this.ent.length;j++) {
+					if(this.rob[i].getX()==this.min[j].getX()&&this.rob[i].getY()==this.min[j].getY()) {
+						Scanner inputReader = new Scanner(System.in);
+						System.out.println("voulez vous miner  R "+this.rob[i].getID()+"dans M "+this.min[j].getIdMine()+" si oui entrez 1");
+				        int number2 = inputReader.nextInt();
+				        if(number2==1) {
+				        	this.rob[i].miner(this.min[j]);
+				        	this.nbTour=this.nbTour+1;
+				        }
+					}
+				}
+			}
+			boolean t=false;
+			boolean d=false;
+			int id;
+			String dep;
+			while(d==false||t==false) {
+				Scanner inputReader = new Scanner(System.in);
+				for(int i=0;i<this.rob.length;i++) {
+					System.out.println("R: "+this.rob[i].getID());
+				}
+				int a=this.rob.length;
+				System.out.println("entre le numero d'id d'un robot");
+				int number2 = inputReader.nextInt();
+				Scanner inputReader2 = new Scanner(System.in);
+				System.out.println("haut=1  bas=2  gauche=3 droite=4 entrer le numero du déplacement");
+				int number3 = inputReader.nextInt();
+				if(number3 >0&&number3<=4&&number2>=0&&number2<a) {
+					t=true;
+					d=true;
+					if(number3>=1&&number3<=4) {
+						d=true;
+						if(number3==1) {
+							this.rob[number2].deplacer("H", this);
+						}
+						else if(number3==2) {
+							this.rob[number2].deplacer("B", this);
+						}
+						else if(number3==3) {
+							this.rob[number2].deplacer("G", this);
+						}
+						else if(number3==4) {
+							this.rob[number2].deplacer("D", this);
+						}
+				}
+			}
+			this.updateMonde();
+			this.afficherMonde();
+			this.afficherEtat();
+			Scanner inputReader4 = new Scanner(System.in);
+	        System.out.println("Voulez vous arrêter si oui entrez 1");
+	        int number = inputReader4.nextInt();
+	        if(number==1) {
+	        	e=true;
+	        }
+		}
+	}
+		System.out.println("Merci d'avoir jouer");
 
+}
+	
+	
 }

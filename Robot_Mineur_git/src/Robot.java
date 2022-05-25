@@ -48,6 +48,10 @@ public Robot(boolean o,int id,int x,int y,int val,int max) {
 
 
 
+public void setStockActuel(int stockActuel) {
+	this.stockActuel = stockActuel;
+}
+
 public int getStockMax() {
 	return stockMax;
 }
@@ -57,28 +61,28 @@ public int getStockActuel() {
 }
 
 public void miner(Mine m) {
-	if(this.or=!m.isOr()|| this.x!=m.getX()||this.y!=m.getY()|| m.getQuantite()==0) {
-		throw new IllegalArgumentException("imposible");
-	}else {
+	if(this.or==m.isOr()&&this.x==m.getX()&&this.y==m.getY()&& m.getQuantite()!=0&&this.stockActuel!=this.stockMax) {
 		if(this.capaciteExtraction>m.getQuantite()||this.stockMax-this.stockActuel>m.getQuantite()) {
 			this.stockActuel=this.stockActuel+m.getQuantite();
 			m.setQuantite(0);
 		}
 		else if(this.capaciteExtraction>this.stockMax-this.stockActuel) {
 			m.setQuantite(m.getQuantite()-(this.stockMax-this.stockActuel));
-			this.stockActuel=this.stockMax-this.stockActuel;
+			this.stockActuel=this.getStockActuel()+(this.stockMax-this.stockActuel);
 		}else {
 			this.stockActuel=this.stockActuel+this.capaciteExtraction;
 			m.setQuantite(m.getQuantite()-this.capaciteExtraction);
 		}
-	}
+	}else {
+		throw new IllegalArgumentException("imposible");
+}
 }
 public void destocker(Entrepot e) {
-	if(this.or=!e.isOr()|| this.x!=e.getX()||this.y!=e.getY()) {
-		throw new IllegalArgumentException("imposible");
-	}else {
+	if(this.or==e.isOr()&& this.x==e.getX()&&this.y==e.getY()) {
 		e.setStock(e.getStock()+this.stockActuel);
-		this.stockActuel=0;
+		this.stockActuel=0;	}
+	else {
+		throw new IllegalArgumentException("imposible");
 	}
 }
 
@@ -152,5 +156,4 @@ public int getID() {
 }
 
 }
-
 
