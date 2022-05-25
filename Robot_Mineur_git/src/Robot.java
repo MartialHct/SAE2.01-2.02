@@ -48,10 +48,6 @@ public Robot(boolean o,int id,int x,int y,int val,int max) {
 
 
 
-public void setStockActuel(int stockActuel) {
-	this.stockActuel = stockActuel;
-}
-
 public int getStockMax() {
 	return stockMax;
 }
@@ -61,14 +57,14 @@ public int getStockActuel() {
 }
 
 public void miner(Mine m) {
-	if(this.or==m.isOr()&&this.x==m.getX()&&this.y==m.getY()&& m.getQuantite()!=0&&this.stockActuel!=this.stockMax) {
+	if(this.or==m.isOr()&&this.x==m.getX()&&this.y==m.getY()&& m.getQuantite()!=0) {
 		if(this.capaciteExtraction>m.getQuantite()||this.stockMax-this.stockActuel>m.getQuantite()) {
 			this.stockActuel=this.stockActuel+m.getQuantite();
 			m.setQuantite(0);
 		}
 		else if(this.capaciteExtraction>this.stockMax-this.stockActuel) {
 			m.setQuantite(m.getQuantite()-(this.stockMax-this.stockActuel));
-			this.stockActuel=this.getStockActuel()+(this.stockMax-this.stockActuel);
+			this.stockActuel=this.stockMax-this.stockActuel;
 		}else {
 			this.stockActuel=this.stockActuel+this.capaciteExtraction;
 			m.setQuantite(m.getQuantite()-this.capaciteExtraction);
@@ -156,4 +152,5 @@ public int getID() {
 }
 
 }
+
 
