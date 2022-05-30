@@ -59,6 +59,16 @@ public int getY() {
 
 
 
+public Mine(int quantite, boolean or, int idMine, int x, int y) {
+	super();
+	this.quantiteD = quantite;
+	this.quantite = quantite;
+	this.or = or;
+	this.idMine = idMine;
+	this.x = x;
+	this.y = y;
+}
+
 public int getQuantiteD() {
 	return quantiteD;
 }

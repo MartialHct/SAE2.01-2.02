@@ -71,4 +71,3 @@ public Secteur(Mine E,Robot r) {
 	this.nature=t;
 }
 }
-

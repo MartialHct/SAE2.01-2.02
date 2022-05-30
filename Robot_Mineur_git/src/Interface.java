@@ -4,6 +4,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
@@ -22,6 +23,34 @@ public class Interface extends Application {
 		f.ajouterEntrepot();
 		f.ajouterMine();
 		f.ajouterRobot();
+		
+		Button button1 = new Button("Monter");
+    	Button button2 = new Button("Descendre");
+    	Button button3 = new Button("Gauche");
+    	Button button4 = new Button("Droite");
+    	
+    	Button button5 = new Button("Miner");
+    	button5.setOnMouseClicked(e -> {
+    		
+    	});
+    	
+    	Button button6 = new Button("Destocker");
+    	button6.setOnMouseClicked(e -> {
+    		
+    	});
+    	
+    	button1.setLayoutX(575);
+    	button1.setLayoutY(800);
+    	button2.setLayoutX(575);
+    	button2.setLayoutY(850);
+    	button3.setLayoutX(475);
+    	button3.setLayoutY(830);
+    	button4.setLayoutX(680);
+    	button4.setLayoutY(830);
+    	button5.setLayoutX(500);
+        button5.setLayoutY(700);
+        button6.setLayoutX(600);
+        button6.setLayoutY(700);
 
         Group group = new Group();
         Scene scene = new Scene(group, 1000, 1000);
@@ -54,23 +83,22 @@ public class Interface extends Application {
         	}
         }
         PointEau[] ob=f.getObstacle();
+        for(int i=0;i<ob.length;i++) {
+        	GridPane [][] test2 = new GridPane[10][10];
+            test2[0][0] = new GridPane();
+    		test2[0][0].setGridLinesVisible(true);
+    		test2[0][0].getColumnConstraints().add(new ColumnConstraints(30));
+    		test2[0][0].getColumnConstraints().add(new ColumnConstraints(30));
+    		test2[0][0].getRowConstraints().add(new RowConstraints(30));
+    		test2[0][0].getRowConstraints().add(new RowConstraints(30));
+    		test2[0][0].add(new Label("   X"),0,0);
+    		test2[0][0].add(new Label("   X"),0,1);
+    		test2[0][0].add(new Label("   X"),1,0);
+    		test2[0][0].add(new Label("   X"),1,1);
+            grille.add(test2[0][0],ob[i].getY(),ob[i].getX());  
+        }
         
         
-        GridPane [][] test = new GridPane[10][10];
-        test[0][0] = new GridPane();
-		test[0][0].setGridLinesVisible(true);
-		test[0][0].getColumnConstraints().add(new ColumnConstraints(30));
-		test[0][0].getColumnConstraints().add(new ColumnConstraints(30));
-		test[0][0].getRowConstraints().add(new RowConstraints(30));
-		test[0][0].getRowConstraints().add(new RowConstraints(30));
-		test[0][0].add(new Label("   X"),0,0);
-		test[0][0].add(new Label("   X"),0,1);
-		test[0][0].add(new Label("   X"),1,0);
-		test[0][0].add(new Label("   X"),1,1);
-        grille.add(test[0][0],0,0);  
-        
-        
-
         grille.setAlignment(Pos.CENTER);
         grille.setStyle("-fx-background-color: white; -fx-grid-lines-visible: true");
         grille.setLayoutX(320);
@@ -116,13 +144,62 @@ public class Interface extends Application {
 
         	}
         }
+        for(int i=0;i<e.length;i++) {
+        	GridPane [][] test2 = new GridPane[10][10];
+            test2[0][0] = new GridPane();
+    		test2[0][0].setGridLinesVisible(true);
+    		test2[0][0].getColumnConstraints().add(new ColumnConstraints(30));
+    		test2[0][0].getColumnConstraints().add(new ColumnConstraints(30));
+    		test2[0][0].getRowConstraints().add(new RowConstraints(30));
+    		test2[0][0].getRowConstraints().add(new RowConstraints(30));
+    		test2[0][0].add(new Label("   E"),0,0);
+    		test2[0][0].add(new Label("   "),0,1);
+    		test2[0][0].add(new Label("  "+e[i].getIdEntrepot()),1,0);
+    		test2[0][0].add(new Label("   "),1,1);
+            grille.add(test2[0][0],e[i].getY(),e[i].getX());  
+        }
         
+        for(int i=0;i<m.length;i++) {
+        	GridPane [][] test2 = new GridPane[10][10];
+            test2[0][0] = new GridPane();
+    		test2[0][0].setGridLinesVisible(true);
+    		test2[0][0].getColumnConstraints().add(new ColumnConstraints(30));
+    		test2[0][0].getColumnConstraints().add(new ColumnConstraints(30));
+    		test2[0][0].getRowConstraints().add(new RowConstraints(30));
+    		test2[0][0].getRowConstraints().add(new RowConstraints(30));
+    		test2[0][0].add(new Label("   M"),0,0);
+    		test2[0][0].add(new Label("   "),0,1);
+    		test2[0][0].add(new Label("  "+m[i].getIdMine()),1,0);
+    		test2[0][0].add(new Label("   "),1,1);
+            grille.add(test2[0][0],m[i].getY(),m[i].getX());  
+        }
+        
+        for(int i=0;i<r.length;i++) {
+        	GridPane [][] test2 = new GridPane[10][10];
+            test2[0][0] = new GridPane();
+    		test2[0][0].setGridLinesVisible(true);
+    		test2[0][0].getColumnConstraints().add(new ColumnConstraints(30));
+    		test2[0][0].getColumnConstraints().add(new ColumnConstraints(30));
+    		test2[0][0].getRowConstraints().add(new RowConstraints(30));
+    		test2[0][0].getRowConstraints().add(new RowConstraints(30));
+    		test2[0][0].add(new Label("   "),0,0);
+    		test2[0][0].add(new Label("   R"),0,1);
+    		test2[0][0].add(new Label("  "+r[i].getID()),1,1);
+    		test2[0][0].add(new Label("   "),1,0);
+            grille.add(test2[0][0],r[i].getY(),r[i].getX());  
+        }
         
         
         Text nbTour=new Text(80,500,"Nombre de tours :  "+f.getNbTour());
         group.getChildren().add(nbTour);
         group.getChildren().add(texte);
         group.getChildren().add(grille);
+        group.getChildren().add(button1);
+        group.getChildren().add(button2);
+        group.getChildren().add(button3);
+        group.getChildren().add(button4);
+        group.getChildren().add(button5);
+        group.getChildren().add(button6);
         stage.setTitle(" Robot Mineurs SAE 2.01 ");
         stage.show();
         stage.setScene(scene);

@@ -444,7 +444,7 @@ public boolean verif(Robot R,String H) {
 				System.out.println("entre le numero d'id d'un robot");
 				int number2 = inputReader.nextInt();
 				Scanner inputReader2 = new Scanner(System.in);
-				System.out.println("haut=1  bas=2  gauche=3 droite=4 entrer le numero du déplacement");
+				System.out.println("haut=1  bas=2  gauche=3 droite=4 entrer le numero du dÃ©placement");
 				int number3 = inputReader.nextInt();
 				if(number3 >0&&number3<=4&&number2>=0&&number2<a) {
 					t=true;
@@ -469,7 +469,7 @@ public boolean verif(Robot R,String H) {
 			this.afficherMonde();
 			this.afficherEtat();
 			Scanner inputReader4 = new Scanner(System.in);
-	        System.out.println("Voulez vous arrêter si oui entrez 1");
+	        System.out.println("Voulez vous arrÃªter si oui entrez 1");
 	        int number = inputReader4.nextInt();
 	        if(number==1) {
 	        	e=true;
@@ -479,4 +479,6 @@ public boolean verif(Robot R,String H) {
 		System.out.println("Merci d'avoir jouer");
 
 }
+	
+	
 }
