@@ -6,12 +6,12 @@ public class appli {
 	public static void main(String[] args) {
 		//main pour jouer robot mineur en mode console
 		
-		Monde f;
-		f=new Monde();
-		f.creerMonde();
-		f.ajouterEntrepot();
-		f.ajouterMine();
-		f.ajouterRobot();
+		MondeV2 f;
+		f=new MondeV2();
+		f.creerMondeV2();
+		f.ajouterEntrepotV2();
+		f.ajouterMineV2();
+		f.ajouterRobotV2();
 		f.game();      
 	}
 }

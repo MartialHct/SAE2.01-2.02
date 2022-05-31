@@ -86,23 +86,23 @@ public void destocker(Entrepot e) {
 	}
 }
 
-public void deplacer(String A,Monde m) {
+public void deplacerV2(String A,MondeV2 m) {
 	Comparator comparator = String.CASE_INSENSITIVE_ORDER;
 	int z = comparator.compare(A, "H");
 	int y = comparator.compare(A, "B");
 	int x = comparator.compare(A, "G");
 	int w = comparator.compare(A, "D");
 	
-	if(z==0 && this.x>0&&m.verif(this, A)==false) {
+	if(z==0 && this.x>0&&m.verifV2(this, A)==false) {
 		this.x=this.x-1;
 	}
-	else if(y==0 && this.x<9&&m.verif(this, A)==false) {
+	else if(y==0 && this.x<9&&m.verifV2(this, A)==false) {
 		this.x=this.x+1;
 	}
-	else if(w==0 && this.y<9&&m.verif(this, A)==false) {
+	else if(w==0 && this.y<9&&m.verifV2(this, A)==false) {
 		this.y=this.y+1;
 	}
-	else if(x==0 && this.y>0&&m.verif(this, A)==false) {
+	else if(x==0 && this.y>0&&m.verifV2(this, A)==false) {
 		this.y=this.y-1;
 	}
 	else {
@@ -111,7 +111,24 @@ public void deplacer(String A,Monde m) {
 	
 }
 
-
+public void deplacer(int state,Monde m) {
+	
+	if(state == 1 && this.x>0&&m.verif(this, state)==false) {
+		this.x=this.x-1;
+	}
+	else if(state == 2 && this.x<9&&m.verif(this, state)==false) {
+		this.x=this.x+1;
+	}
+	else if(state == 4 && this.y<9&&m.verif(this, state)==false) {
+		this.y=this.y+1;
+	}
+	else if(state == 3 && this.y>0&&m.verif(this, state)==false) {
+		this.y=this.y-1;
+	}
+	else {
+		throw new IllegalArgumentException("deplacement imposible");
+	}
+}
 
 public int getX() {
 	return x;

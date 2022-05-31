@@ -23,11 +23,11 @@ class RobotTest {
 		protected PointEau e14;
 		protected PointEau e15;
 		protected PointEau e16;
-		protected Monde m1;
-		protected Monde m2;
-		protected Monde m3;
-		protected Monde m4;
-		protected Monde m5;
+		protected MondeV2 m1;
+		protected MondeV2 m2;
+		protected MondeV2 m3;
+		protected MondeV2 m4;
+		protected MondeV2 m5;
 		    @BeforeEach
 		    void setUp() throws Exception {
 		        hp1=new Robot(true,1,0,5);
@@ -69,81 +69,81 @@ class RobotTest {
 		        PointEau[] triangle5=new PointEau[] {e14,e15,e16};
 		        Robot[] triangle6=new Robot[] {r4,r5,r6,r7};
 		        Robot[] triangle7=new Robot[] {r1,r2,r3};
-		        m1=new Monde(triangle4,triangle7);
-		        m2=new Monde(triangle2,triangle6);
-		        m3=new Monde(triangl3,triangle6);
-		        m4=new Monde(triangle4,triangle6);
-		        m5=new Monde(triangle5,triangle6);
+		        m1=new MondeV2(triangle4,triangle7);
+		        m2=new MondeV2(triangle2,triangle6);
+		        m3=new MondeV2(triangl3,triangle6);
+		        m4=new MondeV2(triangle4,triangle6);
+		        m5=new MondeV2(triangle5,triangle6);
 		        }
 
 		    @Test
 		    void testdepl1() {
-		        assertThrows(Exception.class,()->{hp1.deplacer("H",m5);});
+		        assertThrows(Exception.class,()->{hp1.deplacerV2("H",m5);});
 		        }
 		    @Test
 		    void testdepl2() {
-		        assertThrows(Exception.class,()->{hp2.deplacer("yy",m2);});
+		        assertThrows(Exception.class,()->{hp2.deplacerV2("yy",m2);});
 		        }
 		    @Test
 		    void testdepl3() {
-		    	assertThrows(Exception.class,()->{hp1.deplacer("yy",m2);});
+		    	assertThrows(Exception.class,()->{hp1.deplacerV2("yy",m2);});
 		        }
 
 		    @Test
 		        void testdepl4() {
-		            hp2.deplacer("H",m1);
+		            hp2.deplacerV2("H",m1);
 		            assertEquals(4,hp2.getX());
 		            }
 		    @Test
 		    void testdepl5() {
-		        assertThrows(Exception.class,()->{hp3.deplacer("B",m3);});
+		        assertThrows(Exception.class,()->{hp3.deplacerV2("B",m3);});
 		        }
 		    @Test
 		    void testdepl6() {
-		        assertThrows(Exception.class,()->{hp2.deplacer("G",m2);});
+		        assertThrows(Exception.class,()->{hp2.deplacerV2("G",m2);});
 		        }
 		    @Test
 		    void testdepl7() {
-		        assertThrows(Exception.class,()->{hp3.deplacer("autre",m1);});
+		        assertThrows(Exception.class,()->{hp3.deplacerV2("autre",m1);});
 		        }
 		    @Test
 		    void testdepl8() {
-		    	hp2.deplacer("B",m1);
+		    	hp2.deplacerV2("B",m1);
 	            assertEquals(6,hp2.getX());		        }
 		    @Test
 		    void testdepl9() {
-		        assertThrows(Exception.class,()->{hp5.deplacer("D",m5);});
+		        assertThrows(Exception.class,()->{hp5.deplacerV2("D",m5);});
 		        }
 		    @Test
 		    void testdepl10() {
-		        assertThrows(Exception.class,()->{hp2.deplacer("au",m2);});
+		        assertThrows(Exception.class,()->{hp2.deplacerV2("au",m2);});
 		        }
 
 		    @Test
 		    void testdepl11() {
-		        assertThrows(Exception.class,()->{hp5.deplacer("au",m2);});
+		        assertThrows(Exception.class,()->{hp5.deplacerV2("au",m2);});
 		        }
 		    @Test
 		    void testdepl12() {
-		        hp2.deplacer("D",m1);
+		        hp2.deplacerV2("D",m1);
 		        assertEquals(6,hp2.getY());
 		        }
 		    
 		    @Test
 		    void testdepl13() {
-		        assertThrows(Exception.class,()->{hp4.deplacer("G",m4);});
+		        assertThrows(Exception.class,()->{hp4.deplacerV2("G",m4);});
 		        }
 		    @Test
 		    void testdepl14() {
-		        assertThrows(Exception.class,()->{hp2.deplacer("H",m2);});
+		        assertThrows(Exception.class,()->{hp2.deplacerV2("H",m2);});
 		        }
 		    @Test
 		    void testdepl15() {
-		        assertThrows(Exception.class,()->{hp4.deplacer("au",m2);});
+		        assertThrows(Exception.class,()->{hp4.deplacerV2("au",m2);});
 		        }
 		    @Test
 		    void testdepl16() {
-		        hp2.deplacer("G",m1);
+		        hp2.deplacerV2("G",m1);
 		        assertEquals(4,hp2.getY());
 		        }
 }
