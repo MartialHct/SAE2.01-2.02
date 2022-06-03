@@ -12,6 +12,7 @@ public class appli {
 		f.ajouterEntrepotV2();
 		f.ajouterMineV2();
 		f.ajouterRobotV2();
-		f.game();      
-	}
+		f.game();     
+		
+		}
 }

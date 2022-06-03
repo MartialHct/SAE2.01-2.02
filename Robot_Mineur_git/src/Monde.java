@@ -474,7 +474,7 @@ public boolean verif(Robot R,int state) {
         
         button6.setOnMouseClicked( event ->
 		{for(int i=0;i<this.ent.length;i++) {
-			if(this.rob[rbt].getX()==this.ent[i].getX()&&this.rob[rbt].isOr()==this.ent[i].isOr()&&this.rob[rbt].getY()==this.ent[i].getY()&&this.rob[rbt].getStockActuel()==this.rob[rbt].getStockMax()) {
+			if(this.rob[rbt].getX()==this.ent[i].getX()&&this.rob[rbt].isOr()==this.ent[i].isOr()&&this.rob[rbt].getY()==this.ent[i].getY()&&this.rob[rbt].getStockActuel()>0) {
 			if ( (this.rob.length - 1) == rbt ) {
 				this.rob[rbt].destocker(this.ent[i]);
 				rbt = 0; this.nbTour = nbTour + 1 ;

@@ -62,7 +62,7 @@ public int getStockActuel() {
 
 public void miner(Mine m) {
 	if(this.or==m.isOr()&&this.x==m.getX()&&this.y==m.getY()&& m.getQuantite()!=0&&this.stockActuel!=this.stockMax) {
-		if(this.capaciteExtraction>m.getQuantite()||this.stockMax-this.stockActuel>m.getQuantite()) {
+		if(this.capaciteExtraction>m.getQuantite()) {
 			this.stockActuel=this.stockActuel+m.getQuantite();
 			m.setQuantite(0);
 		}
@@ -149,6 +149,8 @@ public boolean isOr() {
 public int getID() {
 	return this.idRobot;
 }
+
+
 
 }
 

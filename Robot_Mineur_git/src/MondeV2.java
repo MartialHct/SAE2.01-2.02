@@ -97,6 +97,12 @@ public class MondeV2 {
 			}
 		}
 	}
+	
+	
+
+	public void setNbTour(int nbTour) {
+		this.nbTour = nbTour;
+	}
 
 	public void ajouterMineV2() {
 		int a=0;
@@ -479,6 +485,7 @@ public boolean verifV2(Robot R,String H) {
 		System.out.println("Merci d'avoir jouer");
 
 }
+
 	
 	
 }
